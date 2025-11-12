@@ -1,11 +1,11 @@
 ﻿using Comfort.Common;
 using EFT.Communications;
 using EFT.UI;
-using Fika.Core.Coop.Utils;
+using Fika.Core.Main.Utils;
 using Fika.Core.Modding;
 using Fika.Core.Modding.Events;
 using Fika.Core.Networking;
-using LiteNetLib;
+using Fika.Core.Networking.LiteNetLib;
 using RevivalMod.Components;
 using RevivalMod.Features;
 using RevivalMod.FikaModule.Packets;
@@ -31,7 +31,7 @@ namespace RevivalMod.FikaModule.Common
             {
                 try
                 {
-                    Singleton<FikaServer>.Instance.SendDataToAll(ref packet, DeliveryMethod.ReliableOrdered);
+                    Singleton<FikaServer>.Instance.SendData(ref packet, DeliveryMethod.ReliableOrdered, true);
                 }
                 catch (Exception ex)
                 {
@@ -56,7 +56,7 @@ namespace RevivalMod.FikaModule.Common
             {
                 try
                 {
-                    Singleton<FikaServer>.Instance.SendDataToAll(ref packet, DeliveryMethod.ReliableOrdered);
+                    Singleton<FikaServer>.Instance.SendData(ref packet, DeliveryMethod.ReliableOrdered, true);
                 }
                 catch (Exception ex)
                 {
@@ -81,7 +81,7 @@ namespace RevivalMod.FikaModule.Common
             {               
                 try
                 {
-                    Singleton<FikaServer>.Instance.SendDataToAll(ref packet, DeliveryMethod.ReliableOrdered);
+                    Singleton<FikaServer>.Instance.SendData(ref packet, DeliveryMethod.ReliableOrdered, true);
                 }
                 catch (Exception ex)
                 {
@@ -105,7 +105,7 @@ namespace RevivalMod.FikaModule.Common
             {
                 try
                 {
-                    Singleton<FikaServer>.Instance.SendDataToPeer(peer, ref packet, DeliveryMethod.ReliableOrdered);
+                    Singleton<FikaServer>.Instance.SendDataToPeer(ref packet, DeliveryMethod.ReliableOrdered, peer);
                 }
                 catch (Exception ex)
                 {
@@ -131,7 +131,7 @@ namespace RevivalMod.FikaModule.Common
             {
                 try
                 {
-                    Singleton<FikaServer>.Instance.SendDataToAll(ref packet, DeliveryMethod.ReliableOrdered);
+                    Singleton<FikaServer>.Instance.SendData(ref packet, DeliveryMethod.ReliableOrdered, true);
                 }
                 catch (Exception ex)
                 {
@@ -156,7 +156,7 @@ namespace RevivalMod.FikaModule.Common
             {               
                 try
                 {
-                    Singleton<FikaServer>.Instance.SendDataToAll(ref packet, DeliveryMethod.ReliableOrdered);
+                    Singleton<FikaServer>.Instance.SendData(ref packet, DeliveryMethod.ReliableOrdered, true);
                 }
                 catch (Exception ex)
                 {

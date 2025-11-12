@@ -3,6 +3,7 @@ using Comfort.Common;
 using SPT.Reflection.Patching;
 using System;
 using System.Reflection;
+using Fika.Core.Main.Utils;
 using UnityEngine;
 
 namespace RevivalMod.Patches
@@ -20,6 +21,12 @@ namespace RevivalMod.Patches
             try
             {
                 Plugin.LogSource.LogInfo("Game started");
+                
+                if (FikaBackendUtils.IsHeadless)
+                {
+                    Plugin.LogSource.LogInfo("Running on headless, skipping OnGameStarted patch...");
+                    return;
+                }
 
                 // Make sure GameWorld is instantiated
                 if (!Singleton<GameWorld>.Instantiated)

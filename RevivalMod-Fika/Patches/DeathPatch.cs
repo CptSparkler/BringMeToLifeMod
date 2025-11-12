@@ -19,24 +19,21 @@ namespace RevivalMod.Patches
         }
 
         [PatchPrefix]
-        static bool Prefix(ActiveHealthController __instance, EDamageType damageType)
+        private static bool Prefix(ActiveHealthController __instance, EDamageType damageType)
         {
             try
             {
                 // Get the Player field
                 FieldInfo playerField = AccessTools.Field(typeof(ActiveHealthController), "Player");
-                if (playerField == null) return true;
-
-                // Get the Player instance
-                Player player = playerField.GetValue(__instance) as Player;
-
-                // Skip if player is null and is AI
-                if (player == null || player.IsAI) return true;
+                
+                if (playerField?.GetValue(__instance) is not Player player || 
+                    player.IsAI) 
+                    return true;
 
                 string playerId = player.ProfileId;
 
                 // Check for explicit kill override
-                if (RevivalFeatures._playerList[playerId].KillOverride) 
+                if (RevivalFeatures._playerList[playerId].KillOverride)
                     return true;
 
                 // Check if player is invulnerable from recent revival
@@ -52,40 +49,35 @@ namespace RevivalMod.Patches
 
                 Plugin.LogSource.LogInfo($"DEATH PREVENTION: Player {player.ProfileId} about to die from {damageType}");
 
-                // Check for hardcore mode conditions first
-                if (RevivalModSettings.PLAYER_ALIVE.Value)
+                // Check for headshot instant death
+                if (RevivalModSettings.HARDCORE_HEADSHOT_DEFAULT_DEAD.Value &&
+                    __instance.GetBodyPartHealth(EBodyPart.Head, true).Current < 1 &&
+                    damageType == EDamageType.Bullet)
                 {
-                    // Check for headshot instant death
-                    if (RevivalModSettings.HARDCORE_HEADSHOT_DEFAULT_DEAD.Value &&
-                        __instance.GetBodyPartHealth(EBodyPart.Head, true).Current < 1 &&
-                        damageType == EDamageType.Bullet)
+                    // Handle random chance of critical state.
+                    float randomNumber = UnityEngine.Random.Range(0f, 100f);
+
+                    if (randomNumber < RevivalModSettings.HARDCORE_CHANCE_OF_CRITICAL_STATE.Value)
                     {
+                        Plugin.LogSource.LogInfo($"DEATH PREVENTED: Player was lucky. Random Number was: {randomNumber}");
 
-                        // Handle random chance of critical state.
-                        float randomNumber = UnityEngine.Random.Range(0f, 100f);
+                        NotificationManagerClass.DisplayMessageNotification(
+                            "Headshot - critical",
+                            ENotificationDurationType.Default,
+                            ENotificationIconType.Alert,
+                            Color.green);
+                    }
+                    else
+                    {
+                        Plugin.LogSource.LogInfo($"DEATH NOT PREVENTED: Player headshotted");
 
-                        if (randomNumber < RevivalModSettings.HARDCORE_CHANCE_OF_CRITICAL_STATE.Value)
-                        {
-                            Plugin.LogSource.LogInfo($"DEATH PREVENTED: Player was lucky. Random Number was: {randomNumber}");
+                        NotificationManagerClass.DisplayMessageNotification(
+                            "Headshot - killed instantly",
+                            ENotificationDurationType.Default,
+                            ENotificationIconType.Alert,
+                            Color.red);
 
-                            NotificationManagerClass.DisplayMessageNotification(
-                                "Headshot - critical",
-                                ENotificationDurationType.Default,
-                                ENotificationIconType.Alert,
-                                Color.green);
-                        }
-                        else
-                        {
-                            Plugin.LogSource.LogInfo($"DEATH NOT PREVENTED: Player headshotted");
-
-                            NotificationManagerClass.DisplayMessageNotification(
-                                "Headshot - killed instantly",
-                                ENotificationDurationType.Default,
-                                ENotificationIconType.Alert,
-                                Color.red);
-
-                            return true; // Allow death to happen normally
-                        }
+                        return true; // Allow death to happen normally
                     }
                 }
 

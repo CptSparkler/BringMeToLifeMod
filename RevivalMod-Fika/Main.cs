@@ -1,5 +1,5 @@
 ﻿using Comfort.Common;
-using Fika.Core.Coop.Utils;
+using Fika.Core.Main.Utils;
 using Fika.Core.Networking;
 using RevivalMod.FikaModule.Common;
 using RevivalMod.Fika;
