@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RevivalMod-Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("0.0.1.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("0.0.1+8bec55c2930911a1dab8d1f95580a7a2f3ba1291")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("0.0.1+98454525964a994e9c331d70925abb624b92099e")]
 [assembly: System.Reflection.AssemblyProductAttribute("RevivalMod-Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RevivalMod-Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("0.0.1.0")]

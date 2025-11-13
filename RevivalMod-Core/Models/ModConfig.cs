@@ -20,4 +20,5 @@ public class ModConfig
     public bool GodMode { get; set; }
     public bool HeadshotsAreFatal { get; set; }
     public float CriticalStateChance { get; set; }
+    public string ItemId { get; set; }
 }

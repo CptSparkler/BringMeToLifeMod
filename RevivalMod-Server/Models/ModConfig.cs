@@ -40,5 +40,6 @@ public class ModConfig
     public bool HeadshotsAreFatal { get; set; }
     [JsonPropertyName("criticalStateChance")]
     public float CriticalStateChance { get; set; }
-    
+    [JsonPropertyName("itemId")]
+    public required string ItemId { get; set; }
 }

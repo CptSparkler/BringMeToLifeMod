@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RevivalMod.Constants
+﻿namespace RevivalMod.Constants
 {
     public class Constants
     {
@@ -13,7 +7,7 @@ namespace RevivalMod.Constants
         // Personal medkit ID: "5e99711486f7744bfc4af328"
         // CMS kit ID: "5d02778e86f774203e7dedbe"
         // Bandage ID for testing: "544fb25a4bdc2dfb738b4567"
-        public const string ITEM_ID = "5c052e6986f7746b207bc3c9"; // Using bandage for testing purposes
+        // public const string ITEM_ID = "5c052e6986f7746b207bc3c9"; // Using bandage for testing purposes
 
         // Set to true for testing without requiring an actual defibrillator item
         public const bool TESTING = false;

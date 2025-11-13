@@ -391,7 +391,7 @@ namespace RevivalMod.Features
         {
             foreach(Item item in inRaidItems)
             {
-                if (item.TemplateId == Constants.Constants.ITEM_ID)
+                if (item.TemplateId == RevivalModSettings.ITEM_ID)
                     return true;
             }
 
@@ -402,7 +402,7 @@ namespace RevivalMod.Features
         {
             foreach (Item item in inRaidItems)
             {
-                if (item.TemplateId == Constants.Constants.ITEM_ID)
+                if (item.TemplateId == RevivalModSettings.ITEM_ID)
                     return item;
             }
             

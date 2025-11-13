@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RevivalMod-Core", "RevivalM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RevivalMod-Fika", "RevivalMod-Fika\RevivalMod-Fika.csproj", "{1B448728-9098-4B34-AD05-D69756982015}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RevivalMod-Server", "RevivalMod-Server\RevivalMod-Server.csproj", "{D4C8E2D1-1C4F-4E2A-8C7D-1E2F3B4A5C6D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,8 @@ Global
 		{1B448728-9098-4B34-AD05-D69756982015}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B448728-9098-4B34-AD05-D69756982015}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B448728-9098-4B34-AD05-D69756982015}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4C8E2D1-1C4F-4E2A-8C7D-1E2F3B4A5C6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4C8E2D1-1C4F-4E2A-8C7D-1E2F3B4A5C6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
