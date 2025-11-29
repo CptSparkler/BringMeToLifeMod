@@ -40,6 +40,10 @@ public class ConsumeDefibItemPatch
                 if (medKitComponent.HpResource > resourceToConsume)
                 {
                     medKitComponent.HpResource -= resourceToConsume;
+                    
+                    // Trigger item refresh to sync the change to UI and server
+                    ___defibItem.RaiseRefreshEvent(false, false);
+                    
                     Plugin.LogSource.LogInfo($"[Fika] Consumed {resourceToConsume} from revival item. Remaining: {medKitComponent.HpResource}/{medKitComponent.MaxHpResource}");
                     return;
                 }
