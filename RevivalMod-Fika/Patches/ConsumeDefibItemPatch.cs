@@ -17,11 +17,9 @@ public class ConsumeDefibItemPatch
     {
         try
         {
-            if (___player is not FikaPlayer)
+            if (___player is not FikaPlayer fikaPlayer)
                 return;
 
-            FikaPlayer fikaPlayer = (FikaPlayer)___player;
-            
             InventoryController inventoryController = fikaPlayer.InventoryController;
             GStruct153 discardResult = InteractionsHandlerClass.Discard(___defibItem, inventoryController, true);
 
