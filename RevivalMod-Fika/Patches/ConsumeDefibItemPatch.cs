@@ -21,7 +21,7 @@ public class ConsumeDefibItemPatch
         }
         try
         {
-            if (___player is not FikaPlayer)
+            if (___player is not FikaPlayer fikaPlayer)
                 return;
 
             if (___defibItem == null)
