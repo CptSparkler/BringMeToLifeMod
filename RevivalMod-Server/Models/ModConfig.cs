@@ -41,5 +41,5 @@ public class ModConfig
     [JsonPropertyName("criticalStateChance")]
     public float CriticalStateChance { get; set; }
     [JsonPropertyName("itemId")]
-    public required string ItemId[] { get; set; }
+    public required string[] ItemId { get; set; }
 }
