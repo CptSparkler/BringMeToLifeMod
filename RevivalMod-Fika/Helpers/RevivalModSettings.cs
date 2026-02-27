@@ -113,7 +113,7 @@ namespace RevivalMod.Helpers
                 "4. Development",
                 "Test Mode",
                 false,
-                new ConfigDescription("Enables revival without requiring defibrillator item (for testing only)", null, new ConfigurationManagerAttributes { IsAdvanced = true })
+                "Enables revival without requiring defibrillator item (for testing only)"
             );
 
             #endregion
