@@ -32,7 +32,7 @@ namespace RevivalMod.Helpers
         public static float REVIVAL_RANGE_X;
         public static float REVIVAL_RANGE_Y; 
         public static float REVIVAL_RANGE_Z;
-        public static string ITEM_ID;
+        public static string[] ITEM_ID;
 
         // Hardcore Mode
         public static bool GHOST_MODE;
@@ -116,7 +116,7 @@ namespace RevivalMod.Helpers
                 "4. Development",
                 "Test Mode",
                 false,
-                new ConfigDescription("Enables revival without requiring defibrillator item (for testing only)", null, new ConfigurationManagerAttributes { IsAdvanced = true })
+                "Enables revival without requiring defibrillator item (for testing only)"
             );
 
             #endregion
