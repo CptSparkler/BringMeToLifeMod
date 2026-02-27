@@ -13,6 +13,7 @@ using Comfort.Common;
 using RevivalMod.Helpers;
 using RevivalMod.Fika;
 using RevivalMod.Components;
+using System.Linq;
 
 namespace RevivalMod.Features
 {
@@ -394,7 +395,8 @@ namespace RevivalMod.Features
         {
             foreach(Item item in inRaidItems)
             {
-                if (item.TemplateId == RevivalModSettings.ITEM_ID)
+                // Use LINQ's Any method to check if item.TemplateId.ToString() matches any string in ITEM_ID
+                if (RevivalModSettings.ITEM_ID.Any(id => item.TemplateId.ToString() == id))
                     return true;
             }
 
@@ -405,7 +407,8 @@ namespace RevivalMod.Features
         {
             foreach (Item item in inRaidItems)
             {
-                if (item.TemplateId == RevivalModSettings.ITEM_ID)
+                // Use LINQ's Any method to check if item.TemplateId.ToString() matches any string in ITEM_ID
+                if (RevivalModSettings.ITEM_ID.Any(id => item.TemplateId.ToString() == id))
                     return item;
             }
             
